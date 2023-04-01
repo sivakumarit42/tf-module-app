@@ -42,7 +42,7 @@ resource "aws_autoscaling_group" "main" {
   }
   tag {
     key                 = "Name"
-    propagate_at_launch = false
+    propagate_at_launch = true
     value               = "${var.component}-${var.env}"
   }
 }
@@ -58,6 +58,7 @@ resource "aws_autoscaling_policy" "asg-cpu-rule" {
     target_value = 40.0
   }
 }
+
 
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}"
