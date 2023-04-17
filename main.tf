@@ -118,6 +118,8 @@ resource "aws_lb_target_group" "main" {
     timeout             = 4
     path                = "/health"
   }
+  deregistration_delay = 30
+  //check it
   tags = merge(
     var.tags,
     { Name = "${var.component}-${var.env}" }
